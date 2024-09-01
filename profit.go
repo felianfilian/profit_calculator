@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	revenue := 1000
-	expenses := 200
-	taxRate := 25
+	revenue := 1000.0
+	expenses := 200.0
+	taxRate := 25.0
 
 	earningsBT := revenue - expenses
 	earningsAT := earningsBT * (1 - (taxRate / 100))

@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 	revenue := 1000.0
@@ -14,9 +17,10 @@ func main() {
 
 	earningsBT := revenue - expenses
 	earningsAT := earningsBT * (1 - (taxRate / 100))
+	earningsBT = math.Round(earningsBT)
 
-	fmt.Print("earnings before tax: ")
-	fmt.Println(earningsBT)
+	fmt.Printf("\nearnings before tax: %.1f\n", earningsBT)
+	//sfmt.Println(earningsBT)
 	fmt.Print("earnings after tax: ")
 	fmt.Print(earningsAT)
 }

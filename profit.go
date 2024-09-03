@@ -15,7 +15,7 @@ func main() {
 	fmt.Print("Expenses: ")
 	fmt.Scan(&expenses)
 
-	earningsBT := revenue - expenses
+	earningsBT := getEarnings(revenue, expenses)
 	earningsAT := earningsBT * (1 - (taxRate / 100))
 	earningsBT = math.Round(earningsBT)
 
@@ -23,4 +23,8 @@ func main() {
 	//sfmt.Println(earningsBT)
 	fmt.Print("earnings after tax: ")
 	fmt.Print(earningsAT)
+}
+
+func getEarnings(rev float64, exp float64) float64 {
+	return rev - exp
 }

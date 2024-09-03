@@ -6,14 +6,20 @@ import (
 )
 
 func main() {
-	revenue := userInput("Earnings: ")
-	expenses := userInput("Expenses: ")
-	taxRate := 25.0
-
-	earningsBT, earningsAT := getEarnings(revenue, expenses, taxRate)
-
-	fmt.Printf("\nearnings before tax: %.2f Eur", earningsBT)
-	fmt.Printf("\nearnings after tax: %.2f Eur", earningsAT)
+	var revenue float64 = 1
+	for revenue > 0 {
+		revenue = userInput("Earnings: ")
+		if revenue == 0 {
+			break
+		}
+		expenses := userInput("Expenses: ")
+		taxRate := 25.0
+	
+		earningsBT, earningsAT := getEarnings(revenue, expenses, taxRate)
+	
+		fmt.Printf("\nearnings before tax: %.2f Eur", earningsBT)
+		fmt.Printf("\nearnings after tax: %.2f Eur\n\n", earningsAT)
+	}
 }
 
 func getEarnings(rev float64, exp float64, tax float64) (float64, float64) {

@@ -6,14 +6,9 @@ import (
 )
 
 func main() {
-	revenue := 1000.0
-	expenses := 200.0
+	revenue := userInput("Earnings")
+	expenses := userInput("Expenses: ")
 	taxRate := 25.0
-
-	fmt.Print("Earnings: ")
-	fmt.Scan(&revenue)
-	fmt.Print("Expenses: ")
-	fmt.Scan(&expenses)
 
 	earningsBT := getEarnings(revenue, expenses)
 	earningsAT := earningsBT * (1 - (taxRate / 100))
@@ -27,4 +22,11 @@ func main() {
 
 func getEarnings(rev float64, exp float64) float64 {
 	return rev - exp
+}
+
+func userInput(text string) float64 {
+	var userInputNumber float64
+	fmt.Print(text)
+	fmt.Scan(&userInputNumber)
+	return userInputNumber
 }

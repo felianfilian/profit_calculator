@@ -6,22 +6,22 @@ import (
 )
 
 func main() {
-	revenue := userInput("Earnings")
+	revenue := userInput("Earnings: ")
 	expenses := userInput("Expenses: ")
 	taxRate := 25.0
 
-	earningsBT := getEarnings(revenue, expenses)
-	earningsAT := earningsBT * (1 - (taxRate / 100))
-	earningsBT = math.Round(earningsBT)
+	earningsBT, earningsAT := getEarnings(revenue, expenses, taxRate)
 
-	fmt.Printf("\nearnings before tax: %.1f\n", earningsBT)
-	//sfmt.Println(earningsBT)
-	fmt.Print("earnings after tax: ")
-	fmt.Print(earningsAT)
+	fmt.Printf("\nearnings before tax: %.2f Eur", earningsBT)
+	fmt.Printf("\nearnings after tax: %.2f Eur", earningsAT)
 }
 
-func getEarnings(rev float64, exp float64) float64 {
-	return rev - exp
+func getEarnings(rev float64, exp float64, tax float64) (float64, float64) {
+	ebt := rev - exp
+	eat := ebt * (1 - (tax / 100))
+	ebt = math.Round(ebt)
+	eat = math.Round(eat)
+	return ebt, eat
 }
 
 func userInput(text string) float64 {
